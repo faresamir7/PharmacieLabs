@@ -10,21 +10,21 @@ public class moderator extends user {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int moderatorID;
+    Long moderatorID;
 
     public moderator() {
         super();
     }
 
-    public moderator(int moderatorID) {
+    public moderator(Long moderatorID) {
         this.moderatorID = moderatorID;
     }
 
-    public int getModeratorID() {
+    public Long getModeratorID() {
         return moderatorID;
     }
 
-    public void setModeratorID(int moderatorID) {
+    public void setModeratorID(Long moderatorID) {
         this.moderatorID = moderatorID;
     }
     

@@ -11,43 +11,43 @@ import javax.persistence.Id;
 public class order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int orderID;
-    int clientID;
+    Long orderID;
+    Long clientID;
     
-    HashMap<Integer,Integer> medList;
+    HashMap<Long,Integer> medList;
     boolean hasBeenProcessed;
     
     public order() {
     }
 
-    public order(int orderID, int clientID, HashMap<Integer, Integer> medList, boolean hasBeenProcessed) {
+    public order(Long orderID, Long clientID, HashMap<Long, Integer> medList, boolean hasBeenProcessed) {
         this.orderID = orderID;
         this.clientID = clientID;
         this.medList = medList;
         this.hasBeenProcessed = hasBeenProcessed;
     }
 
-    public int getOrderID() {
+    public Long getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(Long orderID) {
         this.orderID = orderID;
     }
 
-    public int getClientID() {
+    public Long getClientID() {
         return clientID;
     }
 
-    public void setClientID(int clientID) {
+    public void setClientID(Long clientID) {
         this.clientID = clientID;
     }
 
-    public HashMap<Integer, Integer> getMedList() {
+    public HashMap<Long, Integer> getMedList() {
         return medList;
     }
 
-    public void setMedList(HashMap<Integer, Integer> medList) {
+    public void setMedList(HashMap<Long, Integer> medList) {
         this.medList = medList;
     }
 

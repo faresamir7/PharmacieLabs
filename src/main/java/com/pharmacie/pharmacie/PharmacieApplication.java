@@ -10,6 +10,4 @@ public class PharmacieApplication {
 		SpringApplication.run(PharmacieApplication.class, args);
 	}
 
-	
-
 }

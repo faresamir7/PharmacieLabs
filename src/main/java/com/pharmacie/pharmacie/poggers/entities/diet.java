@@ -16,10 +16,10 @@ public class diet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int dietID;
-    int clientID;
+    Long dietID;
+    Long clientID;
     @OneToMany(targetEntity=medecine.class, mappedBy="medecineID", fetch=FetchType.EAGER)
-    List<Integer> medecinesID;
+    List<Long> medecinesID;
     @ElementCollection(targetClass = String.class)
     List<String> foodsNotAllowed;
     @ElementCollection(targetClass = String.class)
@@ -28,7 +28,7 @@ public class diet {
     public diet() {
     }
 
-    public diet(int dietID, int clientID, List<Integer> medecinesID, List<String> foodsNotAllowed,
+    public diet(Long dietID, Long clientID, List<Long> medecinesID, List<String> foodsNotAllowed,
             List<String> foodsAllowed) {
         this.dietID = dietID;
         this.clientID = clientID;
@@ -39,27 +39,27 @@ public class diet {
 
 
 
-    public int getDietID() {
+    public Long getDietID() {
         return dietID;
     }
 
-    public void setDietID(int dietID) {
+    public void setDietID(Long dietID) {
         this.dietID = dietID;
     }
 
-    public int getClientID() {
+    public Long getClientID() {
         return clientID;
     }
 
-    public void setClientID(int clientID) {
+    public void setClientID(Long clientID) {
         this.clientID = clientID;
     }
 
-    public List<Integer> getMedecinesID() {
+    public List<Long> getMedecinesID() {
         return medecinesID;
     }
 
-    public void setMedecinesID(List<Integer> medecinesID) {
+    public void setMedecinesID(List<Long> medecinesID) {
         this.medecinesID = medecinesID;
     }
 
@@ -83,8 +83,8 @@ public class diet {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + clientID;
-        result = prime * result + dietID;
+        result = prime * result + clientID.hashCode();
+        result = prime * result + dietID.hashCode();
         result = prime * result + ((foodsAllowed == null) ? 0 : foodsAllowed.hashCode());
         result = prime * result + ((foodsNotAllowed == null) ? 0 : foodsNotAllowed.hashCode());
         result = prime * result + ((medecinesID == null) ? 0 : medecinesID.hashCode());

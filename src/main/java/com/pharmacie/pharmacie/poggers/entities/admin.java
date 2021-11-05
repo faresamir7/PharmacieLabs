@@ -10,20 +10,20 @@ public class admin extends user{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int adminID;
+    Long adminID;
 
-    public admin(int adminID) {
+    public admin(Long adminID) {
         this.adminID = adminID;
     }
 
     public admin() {
     }
 
-    public int getAdminID() {
+    public Long getAdminID() {
         return adminID;
     }
 
-    public void setAdminID(int adminID) {
+    public void setAdminID(Long adminID) {
         this.adminID = adminID;
     }
     

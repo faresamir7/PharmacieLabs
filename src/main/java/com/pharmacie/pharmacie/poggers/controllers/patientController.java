@@ -5,6 +5,8 @@ import com.pharmacie.pharmacie.domain.entities.patient;
 import com.pharmacie.pharmacie.domain.services.patientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,10 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 public class patientController {
 
     @Autowired
@@ -29,6 +30,7 @@ public class patientController {
     public List<patient> showAll() {
         return pService.getPatientAll();
     }
+
 
     @PostMapping("/api/v1/patient/register")
     public void registerPatient(@RequestBody patient p) {
@@ -49,6 +51,16 @@ public class patientController {
     public void processRegister(@ModelAttribute("pat") patient pat) {
         pService.addNewPatient(pat);
     }
-
-
+    
+    @RequestMapping("/backend/profiles")
+	public String backend(Model model) {
+    	model.addAttribute("patients", pService.getPatientAll());
+		return "backend/profiles";
+	}
+    
+    @RequestMapping("/profile")
+	public String frontend(Model model) {
+    	model.addAttribute("patient", pService.getPatient(1));
+		return "frontend/profile";
+	}
 }

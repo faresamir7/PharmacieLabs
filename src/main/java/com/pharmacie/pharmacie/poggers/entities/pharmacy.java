@@ -11,30 +11,30 @@ import javax.persistence.Id;
 public class pharmacy {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int pharmacyID;
-    HashMap<Integer,Integer> catalogue;
+    Long pharmacyID;
+    HashMap<Long,Integer> catalogue;
     
     public pharmacy() {
     }
 
-    public pharmacy(int pharmacyID, HashMap<Integer, Integer> catalogue) {
+    public pharmacy(Long pharmacyID, HashMap<Long, Integer> catalogue) {
         this.pharmacyID = pharmacyID;
         this.catalogue = catalogue;
     }
 
-    public int getPharmacyID() {
+    public Long getPharmacyID() {
         return pharmacyID;
     }
 
-    public void setPharmacyID(int pharmacyID) {
+    public void setPharmacyID(Long pharmacyID) {
         this.pharmacyID = pharmacyID;
     }
 
-    public HashMap<Integer, Integer> getCatalogue() {
+    public HashMap<Long, Integer> getCatalogue() {
         return catalogue;
     }
 
-    public void setCatalogue(HashMap<Integer, Integer> catalogue) {
+    public void setCatalogue(HashMap<Long, Integer> catalogue) {
         this.catalogue = catalogue;
     }
 
