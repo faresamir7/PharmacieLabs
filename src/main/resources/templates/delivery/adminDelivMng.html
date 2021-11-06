@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.88.1">
+	<title>Admin delivery management</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+</head>
+
+<!--  Afficher les deliveries sous form des tables  -->
+
+<body class="text-center">
+	<!--  main class="form"> -->
+	 <h2>deliveries</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Delivery ID</th>
+              <th scope="col">Client ID</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Email</th>
+              <th scope="col">Address</th>
+              <th scope="col">Ville</th>
+              <th scope="col">Region</th>
+              <th scope="col">Date</th>
+              <th scope="col">Statut</th>
+            </tr>
+	
+          </thead>
+          <tbody>
+            <tr th:each="delivery : ${deliveries}">
+              <td th:text="${delivery.deliveryID}">TBD</td>
+              <td th:text="${delivery.clientID}">TBD</td>
+              <td th:text="${delivery.phoneNumber}">TBD</td>
+              <td th:text="${delivery.email}">TBD</td>
+              <td th:text="${delivery.address}">TBD</td>
+              <td th:text="${delivery.ville}">TBD</td>
+              <td th:text="${delivery.region}">TBD</td>
+              <td th:text="${delivery.deliveryDate}">TBD</td>
+              <td th:text="${delivery.statut}">TBD</td>
+             
+            </tr>
+          </tbody>
+        </table>
+      </div>
+	<!--  ->/main-->
+
+
+
+</body>
+
+</html>

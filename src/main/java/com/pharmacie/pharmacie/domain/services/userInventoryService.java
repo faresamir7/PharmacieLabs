@@ -19,7 +19,7 @@ public class userInventoryService {
 	public userInventory getUserInv(int id) {
         Long longid = Long.valueOf(id);
         return uInvRepo.getById(longid);
-    }
+        }
 
     public List<userInventory> getUserInvAll() {
         return uInvRepo.findAll();
