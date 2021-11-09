@@ -85,7 +85,7 @@ public class DeliveryController {
 	//send data from UI to controller
 	 @GetMapping("/addDeliveryForm")
 		public ModelAndView addDeliveryForm() {
-			ModelAndView deliv = new ModelAndView("/delivery/userDeliv");
+			ModelAndView deliv = new ModelAndView("/frontend/delivery");
 			Delivery newDelivery = new Delivery();
 			deliv.addObject("delivery", newDelivery);
 			return deliv;
@@ -95,26 +95,21 @@ public class DeliveryController {
 	 @PostMapping("/saveDelivery")
 		public String saveDelivery(@ModelAttribute Delivery deliv ) {
 			delivService.createDeliv(deliv);
-			return "redirect:/delivery/admin";
+			return "redirect:/backend/deliveries";
 		}
 	
 	//show delivery details in administrator page
-	 @RequestMapping("/delivery/admin")
-		public String backend(Model model) {
+	 @RequestMapping("/backend/adminDelivMng")
+		public String showDeliv(Model model) {
 	    	model.addAttribute("deliveries", delivService.getAllDelivery() );
-			return "/delivery/adminDelivMng";
-		}
+			return "/backend/deliveries";
+		} 
 	 
-	 //testttttttttttttttttttttt
-	 //pleaaase work pls pls plssssssssssss
-	 //contry road take me home to the place i belong 
+	 //Display deliveries
+	 @RequestMapping("/backend/displayDeliv")
+		public String displayAllDeliv(Model model) {
+	    	model.addAttribute("deliveries", delivService.getAllDelivery() );
+			return "/backend/displayDeliv";
+		} 
 	 
-	 
-	
-
-	
-	
-	
-	
-	
 }

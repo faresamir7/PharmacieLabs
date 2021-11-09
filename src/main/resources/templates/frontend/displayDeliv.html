@@ -47,42 +47,44 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 			<div class="card h-100">
 				<div class="card-body">
 					<div class="row gutters">
 						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-							<h6 class="mb-3 text-primary">Personal Details</h6>
+							<h6 class="mb-3 text-primary">Deliveries</h6>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-							<div class="form-group"> <label for="name">Name</label> <input type="text"
-									class="form-control" id="name" placeholder="Enter name"
-									th:placeholder="${patient.name}"></div>
+						<div th:each="delivery : ${Deliveries}">
+						<div class="container">
+						    <label for="test">Email :</label>
+						    <span th:text="${delivery.email}" th:remove="tag">title</span>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-							<div class="form-group"> <label for="familyName">Family Name</label> <input type="text"
-									class="form-control" id="familyName" th:placeholder="${patient.familyName}"></div>
+						
+						<div class="container">
+						    <label for="test">Phone Number : </label>
+						    <span th:text="${delivery.phoneNumber}" th:remove="tag">title</span>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-							<div class="form-group"> <label for="eMail">Email</label> <input type="email"
-									class="form-control" id="eMail" th:placeholder="${patient.username}"></div>
+						
+						<div class="container">
+						    <label for="test">Order</label>
+						    <span th:text="${delivery.address}" th:remove="tag">Order Details.....</span>
+						</div>				
+						<div> 
+							    <button style='margin-right:16px' class="btn btn-info">Show order details</button>
+							    <button style='margin-right:16px' class="btn btn-warning">Update</button>
+							    <button class="btn btn-danger">Cancel</button>
 						</div>
-						<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-							<div class="form-group"> <label for="address">Address</label> <input type="text"
-									class="form-control" id="address" th:placeholder="${patient.address}"></div>
-						</div>
-					</div>
-					<div class="row gutters">
-						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-							<div class="text-right"> <button type="button" id="submit" name="submit"
-									class="btn btn-primary">Update</button></div>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 	</div>
 </div>
+
 <style type="text/css">
 	body {
 		margin-top: 20px;

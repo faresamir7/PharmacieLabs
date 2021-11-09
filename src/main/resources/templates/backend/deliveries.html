@@ -76,7 +76,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/backend/userinv">
+            <a class="nav-link"  href="/backend/userinv">
               <span data-feather="folder-plus"></span>
               Patient Inventories
             </a>
@@ -93,12 +93,14 @@
               Orders
             </a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="/backend/deliveries">
+            <a class="nav-link active" aria-current="page" href="/backend/deliveries">
               <span data-feather="truck"></span>
               Deliveries
             </a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="bell"></span>
@@ -106,7 +108,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/backend/diets">
+            <a class="nav-link" href="/backend/diets">
               <span data-feather="file"></span>
               Diets
             </a>
@@ -177,29 +179,55 @@
 
      
 
-      <h2>Diets</h2>
+       <h2>deliveries</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">Delivery ID</th>
               <th scope="col">Client ID</th>
-              <th scope="col">Medecine IDs</th>
-              <th scope="col">Foods not Allowed</th>
-              <th scope="col">Foods Allowed</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Email</th>
+              <th scope="col">Address</th>
+              <th scope="col">Ville</th>
+              <th scope="col">Region</th>
+              <th scope="col">Date de livraison </th>
+              <th scope="col">Statut</th>
+              <th scope="clo"> Action </th>
             </tr>
+	
           </thead>
           <tbody>
-            <tr th:each="diet : ${diets}">
-              <td th:text="${diet.dietID}">TBD</td>
-              <td th:text="${diet.clientID}">TBD</td>
-              <td th:text="${diet.medecinesID}">TBD</td>
-              <td th:text="${diet.foodsNotAllowed}">TBD</td>
-              <td th:text="${diet.foodsAllowed}">TBD</td>
+            <tr th:each="delivery : ${deliveries}">
+              <td th:text="${delivery.deliveryID}">TBD</td>
+              <td th:text="${delivery.clientID}">TBD</td>
+              <td th:text="${delivery.phoneNumber}">TBD</td>
+              <td th:text="${delivery.email}">TBD</td>
+              <td th:text="${delivery.address}">TBD</td>
+              <td th:text="${delivery.ville}">TBD</td>
+              <td th:text="${delivery.region}">TBD</td>
+              <td>
+              <input type="date" id="Test_DatetimeLocal">
+              </td>
+              
+              <td >
+              	<select>
+				    <option value="Panding">Panding</option>
+				    <option value="confirmed">Confirmed</option>
+				    <option value="delivred">Delivred</option>
+				 </select>
+  			  </td>
+              
+             <td class="buttonStyle">
+             
+             <button type="button" class="btn btn-success" > Confirm </button>
+             
+             </td>					          
+            </tr>
           </tbody>
         </table>
       </div>
-    </main>
+   </main>
   </div>
 </div>
 
