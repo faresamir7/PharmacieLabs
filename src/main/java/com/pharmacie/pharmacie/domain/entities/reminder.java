@@ -13,8 +13,8 @@ import javax.persistence.Id;
 public class reminder {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int reminderID;
-    int clientID;
+    Long reminderID;
+    Long clientID;
     Time reminderTime;
     boolean isEnabled;
     @ElementCollection(targetClass = String.class)
@@ -23,7 +23,7 @@ public class reminder {
     public reminder() {
     }
 
-    public reminder(int reminderID, int clientID, Time reminderTime, boolean isEnabled, List<String> hours) {
+    public reminder(Long reminderID, Long clientID, Time reminderTime, boolean isEnabled, List<String> hours) {
         this.reminderID = reminderID;
         this.clientID = clientID;
         this.reminderTime = reminderTime;
@@ -31,19 +31,19 @@ public class reminder {
         Hours = hours;
     }
 
-    public int getReminderID() {
+    public Long getReminderID() {
         return reminderID;
     }
 
-    public void setReminderID(int reminderID) {
+    public void setReminderID(Long reminderID) {
         this.reminderID = reminderID;
     }
 
-    public int getClientID() {
+    public Long getClientID() {
         return clientID;
     }
 
-    public void setClientID(int clientID) {
+    public void setClientID(Long clientID) {
         this.clientID = clientID;
     }
 

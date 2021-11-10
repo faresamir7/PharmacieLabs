@@ -12,22 +12,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class patient extends user{
+public class patient extends User{
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int clientID;
+    Long clientID;
     String name;
     String familyName;
-    int CIN;
-    int cnamID;
+    Long CIN;
+    Long cnamID;
     String dateOfBirth;
     Blob picture;
     boolean isNotificationOn;
     String address;
     @ElementCollection(targetClass = String.class)
     List<String> allergiesList;
-    int doctorID;
+    Long doctorID;
     boolean isPregnant;
     @ElementCollection(targetClass = String.class)
     List<String> familyList;
@@ -39,8 +39,9 @@ public class patient extends user{
     public patient() {
     }
 
-    public patient(int clientID, String name, String familyName, int cIN, int cnamID, String dateOfBirth, String address,
+    public patient(String username, String passwd,Long clientID, String name, String familyName, Long cIN, Long cnamID, String dateOfBirth, String address,
             String sex) {
+    	super(username,passwd);
         this.clientID = clientID;
         this.name = name;
         this.familyName = familyName;
@@ -51,11 +52,11 @@ public class patient extends user{
         this.sex = sex;
     }
 
-    public int getClientID() {
+    public Long getClientID() {
         return clientID;
     }
 
-    public void setClientID(int clientID) {
+    public void setClientID(Long clientID) {
         this.clientID = clientID;
     }
 
@@ -75,19 +76,19 @@ public class patient extends user{
         this.familyName = familyName;
     }
 
-    public int getCIN() {
+    public Long getCIN() {
         return CIN;
     }
 
-    public void setCIN(int cIN) {
+    public void setCIN(Long cIN) {
         CIN = cIN;
     }
 
-    public int getCnamID() {
+    public Long getCnamID() {
         return cnamID;
     }
 
-    public void setCnamID(int cnamID) {
+    public void setCnamID(Long cnamID) {
         this.cnamID = cnamID;
     }
 
@@ -131,11 +132,11 @@ public class patient extends user{
         this.allergiesList = allergiesList;
     }
 
-    public int getDoctorID() {
+    public Long getDoctorID() {
         return doctorID;
     }
 
-    public void setDoctorID(int doctorID) {
+    public void setDoctorID(Long doctorID) {
         this.doctorID = doctorID;
     }
 
@@ -187,9 +188,9 @@ public class patient extends user{
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + CIN;
-        result = prime * result + clientID;
-        result = prime * result + cnamID;
+        result = prime * result + CIN.hashCode();
+        result = prime * result + clientID.hashCode();
+        result = prime * result + cnamID.hashCode();
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + ((sex == null) ? 0 : sex.hashCode());
         return result;

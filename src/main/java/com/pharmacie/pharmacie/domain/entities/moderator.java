@@ -6,25 +6,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class moderator extends user {
+public class moderator extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int moderatorID;
+    Long moderatorID;
 
     public moderator() {
         super();
     }
 
-    public moderator(int moderatorID) {
+    public moderator(Long moderatorID) {
         this.moderatorID = moderatorID;
     }
 
-    public int getModeratorID() {
+    public Long getModeratorID() {
         return moderatorID;
     }
 
-    public void setModeratorID(int moderatorID) {
+    public void setModeratorID(Long moderatorID) {
         this.moderatorID = moderatorID;
     }
     

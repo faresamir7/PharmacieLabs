@@ -3,6 +3,7 @@ package com.pharmacie.pharmacie.domain.entities;
 import java.sql.Blob;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,26 +15,28 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class announcement {
-	   @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    int announcementID;
-	   
-	   String title;
-	   String Description;
-	   
-	   Blob picture;
-	   Boolean valid;
-	   
-	   @OneToMany(targetEntity=admin.class, mappedBy="adminID", fetch=FetchType.EAGER)
-	    List<Integer> adminID;
-	   
-	   
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long announcementID;
+	
+	
+	String title;
+	String Description;
+
+	Blob picture;
+	Boolean valid;
+
+	@Basic
+	private java.sql.Date announcementDate;
+
+	@OneToMany(targetEntity = admin.class, mappedBy = "adminID", fetch = FetchType.EAGER)
+	List<Integer> adminID;
 
 	public announcement() {
 		super();
 	}
 
-	public announcement(int announcementID, String title, String description, Blob picture, Boolean valid,
+	public announcement(long announcementID, String title, String description, Blob picture, Boolean valid,
 			List<Integer> adminID) {
 		super();
 		this.announcementID = announcementID;
@@ -44,11 +47,19 @@ public class announcement {
 		this.adminID = adminID;
 	}
 
-	public int getAnnouncementID() {
+	public java.sql.Date getAnnouncementDate() {
+		return announcementDate;
+	}
+
+	public void setAnnouncementDate(java.sql.Date announcementDate) {
+		this.announcementDate = announcementDate;
+	}
+
+	public long getAnnouncementID() {
 		return announcementID;
 	}
 
-	public void setAnnouncementID(int announcementID) {
+	public void setAnnouncementID(long announcementID) {
 		this.announcementID = announcementID;
 	}
 
@@ -91,5 +102,5 @@ public class announcement {
 	public void setAdminID(List<Integer> adminID) {
 		this.adminID = adminID;
 	}
-	   
+
 }

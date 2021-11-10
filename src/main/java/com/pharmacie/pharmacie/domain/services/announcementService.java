@@ -10,14 +10,15 @@ import com.pharmacie.pharmacie.domain.repositories.announcementRepository;
 
 @Service
 public class announcementService {
-	  @Autowired
+	  
+	@Autowired
 	    private final announcementRepository dRepo;
 
 	    public announcementService(announcementRepository dRepo) {
 	        this.dRepo = dRepo;
 	    }
 	    
-	    public announcement getAnnouncement(int id) {
+	    public announcement getAnnouncement(long id) {
 	        Long longid = Long.valueOf(id);
 	        return dRepo.getById(longid);
 	    }
@@ -25,17 +26,21 @@ public class announcementService {
 	    public List<announcement> getAnnouncementAll() {
 	        return dRepo.findAll();
 	    }
+	    
+	    public void editAnnouncement(announcement d) {
+	    dRepo.save(d);
+	    }
 
 	    public void addAnnouncement(announcement d) {
-	        for (announcement e : dRepo.findAll()) {
-	            if(e.equals(d)) {
-	                return;
-	            }
-	        }
+//	        for (announcement e : dRepo.findAll()) {
+//	            if(e.equals(d)) {
+//	                return;
+//	            }
+//	        }
 	        dRepo.save(d);
 	    }
 
-	    public void deleteAnnouncement(int id) {
+	    public void deleteAnnouncement(long id) {
 	        Long longid = Long.valueOf(id);
 	        dRepo.deleteById(longid);
 	    }

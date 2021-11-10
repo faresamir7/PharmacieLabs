@@ -16,7 +16,7 @@ import com.pharmacie.pharmacie.domain.services.announcementService;
 public class announcementController {
 
 	@Autowired
-    private final announcementService aService;
+    protected final announcementService aService;
 
     public announcementController(announcementService aService) {
         this.aService = aService;

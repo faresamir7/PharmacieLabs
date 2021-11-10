@@ -1,0 +1,19 @@
+<form action="#" 
+  th:action="@{/announcement/update/{id}(id=${ann.announcementID})}" 
+  th:object="${ann}" 
+  method="post">
+     <label for="title">Name</label>
+    <input type="text" th:field="*{title}" id="name" placeholder="Title">
+    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+    
+    <label for="Description">Email</label>
+    <input type="text" th:field="*{Description}" id="email" placeholder="Description">
+    <span th:if="${#fields.hasErrors('Description')}" th:errors="*{Descriptionl}"></span>
+    
+    <label for="announcementDate">Email</label>
+    <input type="date" th:field="*{announcementDate}" id="email" placeholder="Announcement Date">
+    <span th:if="${#fields.hasErrors('announcementDate')}" th:errors="*{announcementDate}"></span>
+    
+    
+    <input type="submit" value="Edit Announcement">   
+</form>

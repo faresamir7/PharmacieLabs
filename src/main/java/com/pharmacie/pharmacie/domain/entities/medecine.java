@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class medecine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int medecineID;
+    Long medecineID;
     double price;
     @ElementCollection(targetClass = String.class)
     List<String> allergiesList;
@@ -22,7 +22,7 @@ public class medecine {
     public medecine() {
     }
 
-    public medecine(int medecineID, double price, List<String> allergiesList, boolean okayForPregnancy,
+    public medecine(Long medecineID, double price, List<String> allergiesList, boolean okayForPregnancy,
             boolean isOrdonnanceRequired) {
         this.medecineID = medecineID;
         this.price = price;
@@ -31,11 +31,11 @@ public class medecine {
         this.isOrdonnanceRequired = isOrdonnanceRequired;
     }
 
-    public int getMedecineID() {
+    public Long getMedecineID() {
         return medecineID;
     }
 
-    public void setMedecineID(int medecineID) {
+    public void setMedecineID(Long medecineID) {
         this.medecineID = medecineID;
     }
 
